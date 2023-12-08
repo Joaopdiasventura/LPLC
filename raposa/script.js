@@ -1,12 +1,13 @@
 const canvas = document.getElementById("labirintoCanvas");
 const ctx = canvas.getContext("2d");
 
-const tamanhoCelula = 30;
+const tamanhoCelula = 45;
+let frutas = 0;
 const corFundo = "#000";
 let corParede = "#FFFFFF";
 const corJogador = "#f00";
 
-const labirinto = [
+let labirinto = [
   "##################################",
   "###################         ######",
   "##   #            # ####### #   ##",
@@ -63,23 +64,38 @@ class Jogador {
     mover(dx, dy) {
         const novoX = this.x + dx;
         const novoY = this.y + dy;
-    
-        if (this.x % 4 == 0 && this.x != 0 && this.x != 1 && novoX != this.x && novoX > this.x && this.verificaColisao(dx, dy)) {
-            camera.x += jogador.x  / (2)
-        }else if (this.x % 4 == 0 && this.x != 0 && this.x != 1 && novoX != this.x && novoX < this.x && this.verificaColisao(dx, dy)) {
-            camera.x -= jogador.x  / (2)
-        }
-        if (this.y % 4 == 0 && this.y != 0 && this.y != 1 && novoY != this.y && novoY > this.y && this.verificaColisao(dx, dy)) {
-            camera.y += jogador.y  / (2)
-        }else if (this.y % 4 == 0 && this.y != 0 && this.y != 1 && novoY != this.y && novoY < this.y && this.verificaColisao(dx, dy)) {
-            camera.y -= jogador.y  / (2)
-        }
 
         if (this.verificaColisao(dx, dy)) {
           this.x += dx;
           this.y += dy;
-          console.log(camera);
+          camera.x += dx;
+          camera.y += dy;    
+        }     
+        const linhaAtual = labirinto[novoY].split("");
+        
+        if (linhaAtual[novoX] === ".") {
+            linhaAtual[novoX] = " ";
+            frutas+=1;
+
+            if (frutas == 4) {
+              alert("VOCÊ ESTÁ INDO BEM, CONTINUE ASSIM");
+            }
+
+            if (frutas == 12 ) {
+              alert("FALTAM ALGUMAS");
+            }
+
+            if (frutas == 20) {
+              alert("FALTA POUCO, SÓ MAIS ALGUMAS");
+            }
+
+            if (frutas == 24) {
+              alert("VOCÊ VENCEU PARABÉNS");
+              window.location.href = "../index.html";
+            }
         }
+
+        labirinto[novoY] = linhaAtual.join("");
       }
       
     desenhar() {
@@ -98,10 +114,10 @@ class Jogador {
     }
   }
   
-  const jogador = new Jogador(16, 15);
+  const jogador = new Jogador(16, 16);
   const camera = {
-    x: 12,
-    y: 10,
+    x: 14,
+    y: 13,
     largura: canvas.width / tamanhoCelula,
     altura: canvas.height / tamanhoCelula,
   };
@@ -161,3 +177,5 @@ class Jogador {
   });
   
   loopPrincipal();
+
+  alert("PEGUE TODAS AS FRUTAS ESPALHADAS PELO LABIRINTO");
