@@ -16,7 +16,7 @@ function gravidade() {
 
     if (game) {
         if (altura < document.getElementById("container").offsetHeight - gaivotaHeight) {
-            altura += 4;
+            altura += 4.5;
         }
         gaivotaElement.style.top = altura + "px";
         requestAnimationFrame(gravidade);
@@ -27,7 +27,7 @@ function gravidade() {
 
 document.addEventListener("click", () => {
     if (altura >= 75) {
-        altura -= 125;
+        altura -= 175;
     }
     if (game == false) {
         game = true;
@@ -84,7 +84,7 @@ function batida() {
         gaivotaleft + gaivota.offsetWidth >= montanha1left &&
         gaivotaleft <= montanha1left + montanha1Width &&
         gaivotaTop + gaivota.offsetHeight >= montanha1Top &&
-        gaivotaTop <= montanha1Top + montanha1Height
+        gaivotaTop <= montanha1Top + montanha1Height && game
     ) {
         game = false;
         alert("Game Over: Colisão com montanha 1!");
@@ -95,7 +95,7 @@ function batida() {
         gaivotaleft + gaivota.offsetWidth >= montanha2left &&
         gaivotaleft <= montanha2left + montanha2Width &&
         gaivotaTop + gaivota.offsetHeight >= montanha2Top &&
-        gaivotaTop <= montanha2Top + montanha2Height
+        gaivotaTop <= montanha2Top + montanha2Height && game
     ) {
         game = false;
         alert("Game Over: Colisão com montanha 2!");
@@ -104,14 +104,17 @@ function batida() {
 
     if (game) {
         if (quantidade > 2) {
+            game = false;
             document.querySelector(".montanha").style.animation = "sumir1 4s linear";
             document.getElementById("gaivota").style.animation = "sumir 4s linear";
             document.getElementById("montanha2").style.animation = "sumir1 4s linear";
+            altura = altura;
             setTimeout(() => {
                 document.getElementById("montanha1").style.display = "none";
                 document.getElementById("montanha2").style.display = "none";
                 document.getElementById("gaivota").style.left = "100%";
-                reiniciarJogo();
+                alert("VOCÊ VENCEU");
+                window.location.href = "./index.html";
             }, 4000);
         } else {
             document.getElementById("montanha1").style.animation = `andar ${velocidade}s infinite linear`;
@@ -141,6 +144,7 @@ function reiniciarJogo() {
     velocidade = 3;
     mudarMontanha();
     altura = ((containerWidth / 2) - (gaivotaHeight / 2));
+    quantidade = 0;
 }
 
 document.addEventListener("keydown", (e) => {
