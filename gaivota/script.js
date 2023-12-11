@@ -142,3 +142,9 @@ function reiniciarJogo() {
     mudarMontanha();
     altura = ((containerWidth / 2) - (gaivotaHeight / 2));
 }
+
+document.addEventListener("keydown", (e) => {
+    if (e.key == "h" || e.key == "H") {
+        window.location.href = "../index.html";
+    }
+});
