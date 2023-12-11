@@ -104,6 +104,7 @@ function batida() {
 
     if (game) {
         if (quantidade > 2) {
+            
             document.querySelector(".montanha").style.animation = "sumir1 4s linear";
             document.getElementById("gaivota").style.animation = "sumir 4s linear";
             document.getElementById("montanha2").style.animation = "sumir1 4s linear";
