@@ -4,12 +4,12 @@ let start = false;
 document.addEventListener("keydown", (e) => {
   if (e.key == " " && !pulando && start) {
     const cavalo = document.getElementById("cavalo");
-    cavalo.style.animation = "pular 1s linear";
+    cavalo.style.animation = "pular 0.6s linear";
     pulando = true;
     setTimeout(() => {
       cavalo.style.animation = "";
       pulando = false;
-    }, 1000);
+    }, 600);
   }
 
   if (e.key == " " && !start) {
@@ -48,7 +48,7 @@ batida();
 function andar() {
     const pedra = document.getElementById("pedra");
     if (start) {
-        pedra.style.animation = "andar 2s infinite linear";
+        pedra.style.animation = "andar 1s infinite linear";
         pedra.style.display = "block";
     }
     else{
