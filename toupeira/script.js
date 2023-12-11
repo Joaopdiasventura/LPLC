@@ -10,6 +10,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key == " ") {
     enterrado = true;
     toupeira.style.bottom = "0px";
+    toupeira.src = "toupcava.png";
   }
   if (!start) {
     start = true;
@@ -25,6 +26,7 @@ document.addEventListener("keyup", (e) => {
   if (e.key == " ") {
     enterrado = false;
     toupeira.style.bottom = "50px";
+    toupeira.src = "toupcorren.png";
   }
   if (e.key == "h" || e.key == "H") {
     window.location.href = "../index.html";
@@ -44,6 +46,7 @@ document.addEventListener("touchstart", ()=>{
 document.addEventListener("touchend", () => {
     const toupeira = document.getElementById("toupeira");
     enterrado = false;
+    toupeira.src = "toupcorren.png";
     toupeira.style.bottom = "50px";
 });
 
