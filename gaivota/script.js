@@ -16,7 +16,7 @@ function gravidade() {
 
     if (game) {
         if (altura < document.getElementById("container").offsetHeight - gaivotaHeight) {
-            altura += 2.5;
+            altura += 4;
         }
         gaivotaElement.style.top = altura + "px";
         requestAnimationFrame(gravidade);
@@ -26,8 +26,8 @@ function gravidade() {
 }
 
 document.addEventListener("click", () => {
-    if (altura >= 100) {
-        altura -= 100;
+    if (altura >= 75) {
+        altura -= 125;
     }
     if (game == false) {
         game = true;
@@ -45,9 +45,8 @@ function mudarMontanha() {
     let containerWidth = document.getElementById("container").offsetWidth;
     let gaivotaWidth = document.getElementById("gaivota").offsetWidth;
 
-    let altura1 = Math.floor(Math.random() * ((containerWidth - gaivotaWidth - 75) / 2)) + 25;
-    let altura2 = Math.floor(Math.random() * ((containerWidth - gaivotaWidth - 75) / 2)) + 25;
-
+    let altura1 = Math.floor(Math.random() * ((containerWidth - gaivotaWidth - 75) / 2)) + 30;
+    let altura2 = containerWidth - (gaivotaWidth * 2.5) - altura1;
 
     document.getElementById("montanha1").style.height = altura1 + "px";
     document.getElementById("montanha2").style.height = altura2 + "px";
@@ -141,4 +140,5 @@ function reiniciarJogo() {
     game = false;
     velocidade = 3;
     mudarMontanha();
+    altura = ((containerWidth / 2) - (gaivotaHeight / 2));
 }
