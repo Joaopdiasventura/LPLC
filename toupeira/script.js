@@ -105,6 +105,9 @@ function andar() {
 andar();
 
 function perdeu() {
+  document.getElementById("toupeira").src = "toupbatido.png";
+  setTimeout(() => {
   alert("VOCÊ PERDEU!!!");
   window.location.reload();
+  }, 10);
 }

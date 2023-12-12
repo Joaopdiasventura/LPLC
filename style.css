@@ -8,40 +8,39 @@
 body {
   background-color: black;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: white;
+  color: rgb(255, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-.tudo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  min-width: 100px;
-  max-width: 400px;
-  width: 60%;
-  background-color: rgba(156, 0, 0, 0.7);
+h3{
   text-align: center;
-  border-radius: 10px;
-  padding: 20px;
+  color: red;
+  font-size: 50px;
+}
+.tudo {
+  background-color: rgb(255, 255, 255);
+  height: 600px;
+  width: 600px;
+  border-radius: 50px;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  width: 80%;
-  height: 200px;
-  border: none;
+  justify-content: space-around;
+  align-items: space-around;
 }
 
 a {
   width: 40%;
   background-color: gray;
   border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 45px;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 20px;
 }
 
 a:link {
@@ -66,4 +65,5 @@ img {
 
 a:hover{
     background-color: white;
+    border: 1px solid red;
 }
