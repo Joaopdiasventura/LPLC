@@ -5,9 +5,11 @@ document.addEventListener("keydown", (e) => {
   if (e.key == " " && !pulando && start) {
     const cavalo = document.getElementById("cavalo");
     cavalo.style.animation = "pular 0.6s linear";
+    cavalo.src = "cavapulan.png";
     pulando = true;
     setTimeout(() => {
       cavalo.style.animation = "";
+      cavalo.src = "cavacorre.png";
       pulando = false;
     }, 600);
   }
