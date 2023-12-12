@@ -26,7 +26,6 @@ body{
     height: 50px;
     position: absolute;
     bottom: 50px;
-    background-color: red;
 }
 
 #toupeira{
@@ -52,7 +51,6 @@ body{
     height: 50px;
     position: absolute;
     bottom: 0px;
-    background-color: rgb(34, 255, 0);
 }
 
 @keyframes andar {
